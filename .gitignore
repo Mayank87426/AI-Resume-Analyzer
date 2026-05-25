@@ -1,0 +1,96 @@
+# =========================
+# Node modules
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build folders
+# =========================
+dist/
+build/
+coverage/
+.cache/
+
+# Frontend Vite build
+Frontend/dist/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# VS Code
+# =========================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# =========================
+# IDE files
+# =========================
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+# Package lock files (optional)
+# Keep ONLY if you don't want them tracked
+# Usually package-lock.json SHOULD be committed
+# =========================
+# package-lock.json
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+
+# =========================
+# Runtime data
+# =========================
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Testing
+# =========================
+coverage/
+.nyc_output/
+
+# =========================
+# ESLint cache
+# =========================
+.eslintcache
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.bak

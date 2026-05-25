@@ -1,0 +1,159 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/animations" as *;
+
+.cold-email-page {
+    &.home-page {
+        background: transparent;
+    }
+}
+
+.cold-email-result {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    @include animate-in(0.1s);
+
+    &__toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        width: 100%;
+    }
+
+    &__back-btn {
+        background: transparent;
+        border: 1px solid $border-subtle;
+        color: $text-muted;
+        padding: 0.5rem 1rem;
+        border-radius: $radius-md;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+
+        &:hover {
+            border-color: $cyan;
+            color: $cyan;
+        }
+    }
+
+    &__meta {
+        font-size: 0.85rem;
+        color: $text-dim;
+    }
+
+    &__card {
+        width: 100%;
+        padding: 1.5rem 1.75rem;
+        background: $bg-glass;
+        backdrop-filter: blur(16px);
+        border: 1px solid $border-glow;
+        border-radius: $radius-xl;
+        box-shadow: $shadow-card;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    &__subject-row,
+    &__body-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: $cyan;
+        }
+
+        p {
+            font-family: $font-display;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+    }
+
+    &__body {
+        white-space: pre-wrap;
+        font-family: $font-body;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: $text-primary;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid $border-subtle;
+        border-radius: $radius-md;
+        padding: 1.25rem;
+        margin: 0;
+        max-height: 360px;
+        overflow-y: auto;
+    }
+
+    &__copy {
+        align-self: flex-start;
+        margin-top: 0.25rem;
+        padding: 0.45rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: $cyan;
+        background: rgba(0, 245, 212, 0.08);
+        border: 1px solid rgba(0, 245, 212, 0.35);
+        border-radius: $radius-md;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+
+        &:hover {
+            background: rgba(0, 245, 212, 0.15);
+            transform: translateY(-1px);
+        }
+    }
+
+    &__highlights,
+    &__tips {
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        background: $bg-glass;
+        border: 1px solid $border-subtle;
+        border-radius: $radius-lg;
+
+        h3 {
+            font-family: $font-display;
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: $text-primary;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        li {
+            font-size: 0.9rem;
+            color: $text-muted;
+            line-height: 1.55;
+            padding-left: 1.25rem;
+            position: relative;
+
+            &::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: $cyan;
+            }
+        }
+    }
+
+    &__tips li::before {
+        content: "•";
+    }
+}

@@ -1,0 +1,55 @@
+@use "./styles/tokens" as *;
+@use "./styles/animations" as *;
+@use "./styles/buttons";
+@use "./styles/loading";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: $bg-deep;
+    color: $text-primary;
+    font-family: $font-body;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.highlight {
+    background: linear-gradient(135deg, $magenta 0%, $cyan 50%, $gold 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+a {
+    color: $cyan;
+    text-decoration: none;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+
+    &:hover {
+        color: $gold;
+        text-shadow: 0 0 20px rgba(255, 190, 11, 0.4);
+    }
+}
+
+::selection {
+    background: rgba(131, 56, 236, 0.5);
+    color: #fff;
+}

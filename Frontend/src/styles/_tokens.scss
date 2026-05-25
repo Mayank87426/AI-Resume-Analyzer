@@ -1,0 +1,35 @@
+@use "sass:color";
+
+// Vibrant palette
+$violet: #8338ec;
+$magenta: #ff006e;
+$cyan: #00f5d4;
+$gold: #ffbe0b;
+$blue: #3a86ff;
+
+$bg-deep: #07070f;
+$bg-surface: #12121f;
+$bg-elevated: #1a1a2e;
+$bg-glass: rgba(26, 26, 46, 0.72);
+
+$text-primary: #f8f9ff;
+$text-muted: #9ca3c7;
+$text-dim: #6b7289;
+
+$border-subtle: rgba(255, 255, 255, 0.08);
+$border-glow: rgba(131, 56, 236, 0.45);
+
+$gradient-hero: linear-gradient(135deg, $magenta 0%, $violet 45%, $blue 100%);
+$gradient-btn: linear-gradient(135deg, $magenta 0%, $violet 50%, $cyan 100%);
+$gradient-btn-hover: linear-gradient(135deg, color.adjust($magenta, $lightness: 8%) 0%, color.adjust($violet, $lightness: 8%) 50%, color.adjust($cyan, $lightness: 5%) 100%);
+
+$shadow-glow: 0 0 40px rgba(255, 0, 110, 0.35);
+$shadow-card: 0 24px 80px rgba(0, 0, 0, 0.45);
+
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1.25rem;
+$radius-xl: 1.75rem;
+
+$font-display: "Outfit", system-ui, sans-serif;
+$font-body: "DM Sans", system-ui, sans-serif;

@@ -1,0 +1,155 @@
+@use "../../../styles/tokens" as *;
+@use "../../../styles/animations" as *;
+
+.user-dashboard {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    min-height: calc(100vh - 4rem);
+    padding: 3rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    overflow: hidden;
+
+    &__bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &__orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        animation: float 14s ease-in-out infinite;
+
+        &--1 {
+            width: 420px;
+            height: 420px;
+            background: rgba(255, 0, 110, 0.2);
+            top: 10%;
+            left: -5%;
+        }
+
+        &--2 {
+            width: 380px;
+            height: 380px;
+            background: rgba(131, 56, 236, 0.25);
+            bottom: 10%;
+            right: -8%;
+            animation-delay: -7s;
+        }
+    }
+
+    &__welcome {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        max-width: 640px;
+        @include animate-in(0s);
+    }
+
+    &__eyebrow {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: $cyan;
+        margin-bottom: 0.75rem;
+    }
+
+    h1 {
+        font-family: $font-display;
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 0.75rem;
+    }
+
+    &__sub {
+        font-size: 1.05rem;
+        color: $text-muted;
+        line-height: 1.6;
+    }
+
+    &__grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        padding: 1.75rem 1.5rem;
+        border-radius: $radius-xl;
+        background: $bg-glass;
+        backdrop-filter: blur(14px);
+        border: 1px solid $border-subtle;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        @include animate-in(0.15s);
+
+        &:hover {
+            text-shadow: none;
+            transform: translateY(-8px);
+            border-color: $border-glow;
+            box-shadow: $shadow-card;
+        }
+
+        h2 {
+            font-family: $font-display;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1rem 0 0.6rem;
+        }
+
+        p {
+            flex: 1;
+            font-size: 0.92rem;
+            color: $text-muted;
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        &--magenta:hover {
+            box-shadow: 0 20px 60px rgba(255, 0, 110, 0.2), $shadow-card;
+        }
+
+        &--cyan:hover {
+            box-shadow: 0 20px 60px rgba(0, 245, 212, 0.15), $shadow-card;
+        }
+    }
+
+    &__card-icon {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    &__card--magenta &__card-icon {
+        color: $magenta;
+        filter: drop-shadow(0 0 16px rgba(255, 0, 110, 0.5));
+    }
+
+    &__card--cyan &__card-icon {
+        color: $cyan;
+        filter: drop-shadow(0 0 16px rgba(0, 245, 212, 0.5));
+    }
+
+    &__card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: $cyan;
+    }
+}
