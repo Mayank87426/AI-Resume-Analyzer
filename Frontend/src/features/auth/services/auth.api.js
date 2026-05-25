@@ -1,6 +1,10 @@
 import api from "../../../lib/api"
 
 function getErrorMessage(err) {
+    if (err.response?.status === 404) {
+        return `API not found (404). Check VITE_API_URL — requests should go to your Render backend, e.g. https://your-app.onrender.com/api/auth/login`
+    }
+
     return err.response?.data?.message || err.message || "Request failed"
 }
 

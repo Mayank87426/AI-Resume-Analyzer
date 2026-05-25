@@ -28,6 +28,10 @@ const authRouter = require("./routes/auth.routes")
 const interviewRouter = require("./routes/interview.routes")
 const coldEmailRouter = require("./routes/coldEmail.routes")
 
+app.get("/api/health", (req, res) => {
+    res.json({ ok: true, message: "API is running" })
+})
+
 app.use("/api/auth", authRouter)
 app.use("/api/interview", interviewRouter)
 app.use("/api/cold-email", coldEmailRouter)
