@@ -1,9 +1,4 @@
-import axios from "axios"
-
-const api = axios.create({
-    baseURL: "http://localhost:3000",
-    withCredentials: true
-})
+import api from "../../../lib/api"
 
 function getErrorMessage(err) {
     return err.response?.data?.message || err.message || "Request failed"
@@ -11,14 +6,17 @@ function getErrorMessage(err) {
 
 export async function register({ username, email, password }) {
     const response = await api.post("/api/auth/register", {
-        username, email, password
+        username,
+        email,
+        password
     })
     return response.data
 }
 
 export async function login({ email, password }) {
     const response = await api.post("/api/auth/login", {
-        email, password
+        email,
+        password
     })
     return response.data
 }

@@ -4,8 +4,21 @@ const cors = require("cors")
 
 const app = express()
 
+app.set("trust proxy", 1)
+
+const allowedOrigins = (process.env.FRONTEND_URL || "http://localhost:5173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean)
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin(origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true)
+        } else {
+            callback(null, false)
+        }
+    },
     credentials: true
 }))
 app.use(express.json())
